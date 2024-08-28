@@ -1,24 +1,34 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>Snake3D</title>
-	<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./style.css" rel="stylesheet">
+    <script src="index.js"></script>
+    <title>accueil</title>
 </head>
-
 <body>
+    <header>
+        <h1>SNAKE 3D</h1>
+        <h2>Accueil</h2>
+    </header>
+    <div id="list-mode">
+        <div>
+            <h3>mode normale</h3>
+            <p>Les règles normale du jeu Snake mais en 3D à la première personne.</p>
+            <button id="button-normale"><a href="normale_mode/index.html">JOUER</a></button>
+        </div>
+        <div>
+            <h3>mode fun</h3>
+            <p>Pas de limite de terrain. Impossible de mourir. Commence avec la taille de ton choix.</p>
 
-	<canvas id="c"></canvas>
-
-	<div id="perdu" class='invisible'>
-		<h1>Perdu</h1>
-		<h2>score: <span id="score"></span></h2>
-		<button onclick="document.location.reload()">Rejouer</button>
-	</div>
-
-	<script type="module" src="./index.js"></script>
-
+            <button id="button-fun">JOUER</button>
+        </div>
+        <div>
+            <h3>mode telephone</h3>
+            <p>mode normale adapter pour téléphone</p>
+            <button id="button-tel"><a href="tel/index.html">JOUER</a></button>
+        </div>
+    </div>
 </body>
-
 </html>
