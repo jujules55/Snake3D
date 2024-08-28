@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+	<title>Snake3D</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<canvas id="c"></canvas>
+	<div id="fleches">
+		<div class="col_item i1">
+			<div id="haut" class="fleche">↑</div>
+		</div>
+		<div class="col_item i2 gd_fleches">
+			<div id="gauche" class="fleche">←</div>
+			<div id="droite" class="fleche">→</div>
+		</div>
+		<div class="col_item i3">
+			<div id="bas" class="fleche">↓</div>
+		</div>
+	</div>
+	<div id="perdu" class='invisible'>
+		<h1>Perdu</h1>
+		<h2>score: <span id="score"></span></h2>
+		<button id="perdu_but" onclick="document.location.reload()">Rejouer</button>
+	</div>
+
+	<script type="module" src="./index.js"></script>
+
+</body>
+
+</html>
