@@ -2,6 +2,20 @@ import * as THREE from 'https://cdnjs.cloudflare.com/ajax/libs/three.js/0.158.0/
 // import { OrbitControls } from "https://cdn.skypack.dev/three/examples/jsm/controls/OrbitControls.js"
 import Snake from './snake.js';
 
+let taille_initiale = 0;
+
+function change_taille_initiale() {
+    taille_initiale = document.getElementById("taille_initiale").value;
+    console.log(taille_initiale);
+}
+
+document.getElementById('jouer').addEventListener('click', function () {
+    change_taille_initiale();
+    document.getElementById('menu').classList.replace('visible', 'invisible');
+    document.getElementById('c').classList.replace('invisible', 'visible');
+    main();
+})
+
 function main() {
     const canvas = document.querySelector('#c');
     const renderer = new THREE.WebGLRenderer({ canvas });
@@ -11,12 +25,12 @@ function main() {
     const near = 0.1;
     const far = 100;
     const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-    
+
 
     const scene = new THREE.Scene();
     scene.background = new THREE.Color('black');
 
-    let snake = new Snake(0,0,0, camera, scene)
+    let snake = new Snake(0, 0, 0, camera, scene)
 
     {
         const planeSize = 40;
@@ -43,7 +57,7 @@ function main() {
 
     {
         const color = 0xFFFFFF;
-        const light = new THREE.PointLight( 0xffffff, 50 );
+        const light = new THREE.PointLight(0xffffff, 50);
         const light2 = new THREE.AmbientLight(color, 1);
         scene.add(light);
         scene.add(light2);
@@ -60,11 +74,14 @@ function main() {
         return needResize;
     }
 
-    for(let i = 0; i<100; i++){
+    for (let i = 0; i < taille_initiale; i++) {
         snake.add()
     }
 
-    document.body.addEventListener('keydown',(e)=>{
+    document.body.addEventListener('keydown', (e) => {
+        if (e.key == "q") {
+            document.location.reload();
+        }
         snake.checkEvent(e.key)
     })
 
@@ -95,5 +112,3 @@ function main() {
 
     requestAnimationFrame(render);
 }
-
-main();
